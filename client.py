@@ -1,4 +1,5 @@
 import socket
+import sys
 import time
 from threading import Thread
 
@@ -30,6 +31,6 @@ if __name__ == '__main__':
     Thread(target=monitor).start()
     while True:
         try:
-            connect()
+            connect(port=int(sys.argv[1]))
         except ConnectionError:
             time.sleep(0.1)

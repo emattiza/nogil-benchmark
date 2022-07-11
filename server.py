@@ -1,4 +1,5 @@
 from threading import Thread
+import sys
 import socket
 
 
@@ -31,4 +32,5 @@ def compute():
 
 if __name__ == '__main__':
     Thread(target=compute).start()
-    run_server()
+    print(sys.argv)
+    run_server(port=int(sys.argv[1]))
