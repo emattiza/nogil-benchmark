@@ -86,7 +86,8 @@ tasks:
   - init: >
       mkdir -p /home/gitpod/.config/nix &&
       echo 'sandbox = false' >> /home/gitpod/.config/nix/nix.conf
-      nix-shell --command 'echo 1'
+      nix-store --query --references $(nix-instantiate shell.nix) | \
+      xargs nix-store --realise
   - name: Server-NoGIL
     command: ./scripts/run-nogil-server.sh
     openMode: split-left
