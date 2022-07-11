@@ -46,7 +46,7 @@ RUN . /home/gitpod/.nix-profile/etc/profile.d/nix.sh \
 
 # Install git
 RUN . /home/gitpod/.nix-profile/etc/profile.d/nix.sh \
-  && nix-env -i git git-lfs
+  && nix-env -i git git-lfs findutils
 
 # Install direnv
 RUN . /home/gitpod/.nix-profile/etc/profile.d/nix.sh \
